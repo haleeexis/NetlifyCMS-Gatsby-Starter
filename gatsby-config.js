@@ -1,24 +1,30 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby + Netlify CMS Starter",
-    description: "Starter",
+    title: "Alexis' Gatsby + Netlify CMS Starter",
+    description: "Minimal starter using Gatsby + Netlify CMS Starter",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sass",
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/static/img`,
+        path: `${__dirname}/content/img`,
         name: "uploads",
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/pages`,
+        path: `${__dirname}/content/pages`,
         name: "pages",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: "blog",
       },
     },
     {

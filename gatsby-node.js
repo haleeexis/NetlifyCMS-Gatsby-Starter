@@ -24,15 +24,18 @@ exports.createPages = ({ actions, graphql }) => {
       }
     }
   `).then((result) => {
+    //if errors arise when fetching data
     if (result.errors) {
       result.errors.forEach((e) => console.error(e.toString()));
       return Promise.reject(result.errors);
     }
 
-    const posts = result.data.allMarkdownRemark.edges;
+    //all the edges from the query
+    const edges = result.data.allMarkdownRemark.edges;
 
-    posts.forEach((edge) => {
+    edges.forEach((edge) => {
       const id = edge.node.id;
+      //we create a page for every markdown edge. We use the template folder to determine each component.
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve(
