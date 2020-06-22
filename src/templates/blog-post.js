@@ -23,7 +23,10 @@ export const BlogPostTemplate = ({
         <div>
           <h1>{title}</h1>
           <p>{description}</p>
-          <PostContent content={content} />
+          <div style={{ width: "600px" }}>
+            <PostContent content={content} />
+            {console.log("content", content)}
+          </div>
           {tags && tags.length ? (
             <div style={{ marginTop: `4rem` }}>
               <h4>Tags</h4>
